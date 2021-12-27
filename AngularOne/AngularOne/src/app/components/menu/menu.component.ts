@@ -1,43 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Dish } from '../../shared/dish';
-const DISHES : Dish[] = [{
-  id : "1",
-  name : "Samosa",
-  image : '/assets/images/samosa.jpg',
-  category : "Cuisine",
-  featured : false,
-  label : "Hot",
-  price : "10rs",
-  description : "Garam Samosa"
-},
-{
-  id : "2",
-  name : "Idli",
-  image : "/assets/images/idli.jpg",
-  category : "Breakfast",
-  featured : false,
-  label : "Hot",
-  price : "20rs",
-  description : "South Indian Special"
-},{
-  id : "3",
-  name : "Pakoda",
-  image : "/assets/images/pakoda.jpg",
-  category : "Lunch",
-  featured : false,
-  label : "Hot",
-  price : "25rs",
-  description : "Maharashtra Special"
-},{
-  id : "4",
-  name : "Samosa",
-  image : "/assets/images/samosa.jpg",
-  category : "Lunch",
-  featured : false,
-  label : "Hot",
-  price : "25rs",
-  description : "Maharashtra Special"
-}];
+import {DISHES} from '../../shared/dishes';
+
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
@@ -48,11 +12,17 @@ export class MenuComponent implements OnInit {
   
   dishes : Dish[] = DISHES;
 
-  selectedDish : Dish = DISHES[0];
+  selectedDish : Dish;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelect(dish : Dish){
+    this.selectedDish = dish;
+    console.log(this.selectedDish);
+    
   }
 
 
