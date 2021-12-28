@@ -10,14 +10,18 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {DishService} from './services/dish.service';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DishDetailComponent
+    DishDetailComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,8 @@ import {DishService} from './services/dish.service';
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule
   ],
   providers: [
     DishService
