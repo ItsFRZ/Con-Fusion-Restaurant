@@ -3,25 +3,34 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
-import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {DishService} from './services/dish.service';
+import {PromotionService} from './services/promotion.service';
+
+import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DishDetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +43,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule
   ],
   providers: [
-    DishService
+    DishService,
+    PromotionService
   ],
   bootstrap: [AppComponent]
 })

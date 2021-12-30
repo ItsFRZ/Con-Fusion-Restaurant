@@ -21,3 +21,11 @@ $background-pale: #D1C4E9; */
     /* position: absolute; */
     width: 100vw;
 }
+.active{
+    background-color: blueviolet;
+    color: white;
+}
+.active:hover{
+    background-color: blueviolet;
+    color: white;
+}
