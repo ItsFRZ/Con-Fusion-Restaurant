@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-4">
 
             <mat-card *ngIf="dish" fxFlex>
                 <mat-card-header>
@@ -15,10 +15,9 @@
                 </p>
                 </mat-card-content>
             </mat-card>
-            
-
+        
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-4">
             
             <mat-card *ngIf="promotion" fxFlex>
                 <mat-card-header>
@@ -34,6 +33,24 @@
                 </mat-card-content>
             </mat-card>
         </div>
+
+        <div class="col-12 col-md-4">
+            
+            <mat-card *ngIf="leader" fxFlex>
+                <mat-card-header>
+                <div mat-card-avatar></div>
+                <mat-card-title>
+                    <h3>{{leader.name | uppercase}}</h3>
+                </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src={{leader.image}} alt={{leader.name}}>
+                <mat-card-content>
+                <p>{{leader.description}}
+                </p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
     </div>
 
 
