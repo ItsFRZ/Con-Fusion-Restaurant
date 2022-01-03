@@ -31,6 +31,9 @@ $primary-text-color:   #212121;
 $secondary-text-color: #757575;
 $divider-color:        #BDBDBD; */
 
+*{
+  font-family: Roboto,Arial,Georgia, 'Times New Roman', Times, serif;
+}
 
 
 .background-primary {
