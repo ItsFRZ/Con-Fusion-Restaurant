@@ -34,6 +34,11 @@ import { ContactComponent } from './components/contact/contact.component';
 import { LoginComponent } from './components/login/login.component';
 import { PopupComponent } from './components/popup/popup.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import { LeaderService } from './services/leader.service';
+import {baseURL} from './shared/baseurl';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,11 +69,15 @@ import { PopupComponent } from './components/popup/popup.component';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService,
+    {provide : 'BaseURL' , useValue : baseURL}
+
   ],
   bootstrap: [AppComponent],
   entryComponents : [

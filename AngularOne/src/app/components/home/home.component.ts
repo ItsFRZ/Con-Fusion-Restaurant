@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
 import {Dish} from '../../shared/dish';
 import {Promotion} from '../../shared/promotion';
 import { DishService } from 'src/app/services/dish.service'; 
@@ -16,7 +16,7 @@ import { PopupComponent } from '../popup/popup.component';
 export class HomeComponent implements OnInit {
 
   constructor(private dishService:DishService, private promotionService: PromotionService, private leaderService : LeaderService,
-    public dialog : MatDialog) { }
+    public dialog : MatDialog,@Inject('BaseURL') private BaseURL) { }
 
   dish : Dish;
   promotion : Promotion;
@@ -26,13 +26,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.dishService.getFeaturedDish()
-        .then((dish) => this.dish = dish);
+        .subscribe((dish) => this.dish = dish);
     
     this.promotionService.getFeaturedPromotion()
-        .then((promotion) => this.promotion = promotion);
+        .subscribe((promotion) => this.promotion = promotion);
 
     this.leaderService.getFeaturedLeader()
-        .then((leader) => this.leader = leader);
+        .subscribe((leader) => this.leader = leader);
 
   }
 
