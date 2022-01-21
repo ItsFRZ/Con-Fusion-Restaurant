@@ -16,8 +16,12 @@
                 </mat-card-content>
             </mat-card>
         
-            <div [hidden]="dish">
+            <div [hidden]="dish || dishErrMess">
                 <mat-spinner>Loading ...</mat-spinner>
+            </div>
+            <div *ngIf="dishErrMess">
+                <h1>Error</h1>
+                <h4>{{dishErrMess}}</h4>
             </div>
         </div>
         <div class="col-12 col-md-4">

@@ -1,0 +1,12 @@
+.full{
+    width: 100%;
+}
+.center{
+    display: block;
+    margin : 0px auto;
+}
+textarea{
+    resize: none;
+    height: 100px;
+    max-height: 100px;
+}

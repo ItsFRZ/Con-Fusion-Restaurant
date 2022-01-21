@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
 
   
   dishes : Dish[];
+  errMess : String;
 
   // selectedDish : Dish;
 
@@ -21,7 +22,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
     this.dishService.getDishes()
-        .subscribe((dishes) => this.dishes = dishes);
+        .subscribe((dishes) => this.dishes = dishes,
+        errmes => this.errMess = <any>errmes);
   
     }
 

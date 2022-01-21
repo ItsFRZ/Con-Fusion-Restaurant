@@ -1,6 +1,6 @@
-<div class="container" *ngIf="dish">
-    <div class="row">
-        <div class="col-12 col-sm-6">
+<div class="container">
+    <div class="row"  *ngIf="dish">
+        <div class="col-12 col-sm-6" >
             <mat-card >
                 <mat-card-header>
                     <mat-card-title>
@@ -27,22 +27,68 @@
             <!-- <h1>Display the detais of dish here</h1> -->
         </div>
         <div class="col-12 col-sm-6">
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-title>Comments</mat-card-title>
-                </mat-card-header>
-                <mat-card-content *ngFor="let comment of dish.comments">
-                    <p>{{comment.comment}}</p>
-                    <p>~ {{comment.author}} {{comment.date | date}}</p>
-                    <p mat-line></p>
-                </mat-card-content>
-            </mat-card>
+            <div class="row">
+                
+                <!-- Comments Form Section -->
+                <div class="col-12">
+                    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+                        <mat-card>
+                            <mat-card-header>
+                                <mat-card-title>
+                                    Write Comment
+                                </mat-card-title>
+                            </mat-card-header>
+                            <mat-card-content>
+                            
+                                    <mat-form-field class="full">
+                                        <input [(ngModel)]="commentData.author" type="text" name="author" matInput placeholder="Author Name">
+                                    </mat-form-field>
+                                
+                                    <p>Ratings</p>
+                                    <mat-slider class="full" [(ngModel)]="commentData.rating" name="rating" [displayWith]="formatLabel" tickInterval="1" step="1" min="1" max="5" aria-label="units">Rating</mat-slider>
+                                
+                                    <mat-form-field class="full">
+                                        <textarea class="full" [(ngModel)]="commentData.comment" name="comment" matInput cols="4" rows="3" placeholder="Write Comment Here"></textarea>
+                                    </mat-form-field>
+                            </mat-card-content>
+                            <mat-card-action class="text-center">
+                                <button class="center" type="submit" mat-raised-button color="primary" >Comment</button>
+                            </mat-card-action>
+                        </mat-card>
+                    </form>
+                </div>
+                 <!-- Comments Section -->
+                <div class="col-12">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>Comments</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content *ngFor="let comment of dish.comments">
+                            <p>{{comment.comment}}</p>
+                            <p>~ {{comment.author}} {{comment.date | date}}</p>
+                            <p mat-line></p>
+                        </mat-card-content>
+                        <mat-card-content *ngIf="commentData.comment.length > 0">
+                            <p>{{commentData.comment}}</p>
+                            <p>~ {{commentData.author}} {{commentData.date | date}}</p>
+                            <p mat-line></p>
+                        </mat-card-content>
+                        
+                    </mat-card>
+                </div>
+            </div>
         </div>
 
     </div>
-    <div [hidden]="dish">
+
+    
+    <div [hidden]="dish || errMess">
         <mat-spinner>
-            <h2>Loading ...Please Wait</h2>
-        </mat-spinner>
+          
+        </mat-spinner>  <h2>Loading ...Please Wait</h2>
+    </div>
+    <div fxFlex *ngIf="errMess">
+        <h2>Error</h2>
+        <h4>{{errMess}}</h4>
     </div>
 </div>

@@ -19,10 +19,11 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatSliderModule} from '@angular/material/slider';
 
 import {DishService} from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
+import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
 
 import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
 import { MenuComponent } from './components/menu/menu.component';
@@ -37,6 +38,7 @@ import { PopupComponent } from './components/popup/popup.component';
 import {HttpClientModule} from '@angular/common/http';
 import { LeaderService } from './services/leader.service';
 import {baseURL} from './shared/baseurl';
+import { HighlightDirective } from './directive/highlight.directive';
 
 
 @NgModule({
@@ -50,7 +52,8 @@ import {baseURL} from './shared/baseurl';
     AboutComponent,
     ContactComponent,
     LoginComponent,
-    PopupComponent
+    PopupComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
@@ -70,12 +73,14 @@ import {baseURL} from './shared/baseurl';
     MatSelectModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSliderModule
   ],
   providers: [
     DishService,
     PromotionService,
     LeaderService,
+    ProcessHTTPMsgService,
     {provide : 'BaseURL' , useValue : baseURL}
 
   ],
